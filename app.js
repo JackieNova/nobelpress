@@ -27,7 +27,7 @@ function card(a){return `<a class="card" href="#article/${a.id}">${cover(a)}${a.
 function table(items){return `<table class="archive-table"><thead><tr><th scope="col">编号</th><th scope="col">文章 / TITLE</th><th scope="col">领域</th><th scope="col">阅读</th></tr></thead><tbody>${items.map(a=>`<tr><td>${a.number}</td><td><a class="archive-title" href="#article/${a.id}">${a.title}</a></td><td>${a.field}</td><td>${a.read}</td></tr>`).join('')}</tbody></table>`;}
 function heading(en,cn,desc){return `<header class="page-intro"><p class="eyebrow">NOBELPRESS · A PERSONAL ARCHIVE</p><h1>${en}<span>${cn}</span></h1><p class="intro">${desc}</p></header>`;}
 function laureateIssue(){return `<section class="section standalone-poster" aria-label="HongXiang Jia 的学术人物海报"><figure class="issue-poster"><img src="assets/hongxiang-jia-poster.png" alt="HongXiang Jia 的学术人物海报，主题为电子信息工程与青年研究者" loading="lazy" width="1254" height="1254"></figure></section><section class="section laureate-issue" aria-labelledby="laureate-name"><div class="issue-grid"><figure class="issue-portrait"><img src="assets/hongxiang-jia-portrait.png" alt="HongXiang Jia 的个人照片" loading="lazy" width="1086" height="1448"></figure><div class="issue-profile"><div class="issue-heading"><h2 id="laureate-name">HongXiang Jia</h2><div class="issue-intro"><p class="issue-award">本期诺贝尔奖获得者</p><p class="issue-field">电子信息工程</p></div></div><blockquote><p>“For curiosity, exploration and the pursuit of innovation.”</p><footer>为好奇心、探索与创新的追求。</footer></blockquote></div></div></section>`;}
-function home(){return `<section class="hero"><div><h1>The pursuit of<br><em>understanding.</em></h1><p class="hero-cn">在公式、思想与自然之间。</p><p class="intro">记录数学的推理、电子信息的实践与人工智能的探索。也回望那些改变我们理解世界方式的人与思想。</p><a class="text-link" href="#archive">浏览学术档案 <span>Explore the archive</span></a></div><figure class="hero-figure"><a class="image-wrap" href="#article/astrolabe"><span class="medal-space" data-medal-rotation><span class="medal-tilt"><span class="medal-coin"><span class="medal-edge" style="--edge-depth:-7px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-6px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-5px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-4px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-3px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-2px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:-1px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:0px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:1px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:2px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:3px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:4px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:5px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:6px" aria-hidden="true"></span><span class="medal-edge" style="--edge-depth:7px" aria-hidden="true"></span><span class="medal-front"><img src="assets/alfred-nobel-medal-user.png" alt="用户提供的阿尔弗雷德·诺贝尔肖像奖章图片" width="946" height="950"></span><span class="medal-back" aria-hidden="true"></span></span></span></span></a><figcaption><strong>阿尔弗雷德·诺贝尔（1833—1896）</strong>瑞典化学家与发明家。他以遗嘱设立诺贝尔奖，表彰为人类作出贡献的人。</figcaption></figure></section>${laureateIssue()}<section class="section"><div class="section-heading"><h2>Areas of inquiry <span>探索的领域</span></h2></div><div class="fields">${[['数学','Mathematics','结构、证明与近似。用推理把直觉变得清晰。'],['电子信息','Electronic Information','信号、系统与电路。从连续世界走向数字表达。'],['人工智能','Artificial Intelligence','模型、学习与优化。理解方法，也检验它的边界。'],['自然科学','Natural Sciences','从仪器到星系。让观察与证据引导问题。']].map((f,i)=>`<a class="field" href="#archive?field=${encodeURIComponent(f[0])}"><h3>${f[0]}</h3><span class="en">${f[1]}</span><p>${f[2]}</p></a>`).join('')}</div></section><section class="section"><div class="section-heading"><h2>Selected notes <span>精选札记</span></h2><a href="#notes">全部札记</a></div><div class="cards">${[articles[0],articles[2],articles[3]].map(card).join('')}</div></section><section class="history-feature"><img src="assets/einstein-1921.jpg" alt="Ferdinand Schmutzer 于 1921 年拍摄的爱因斯坦黑白肖像" loading="lazy" width="600" height="750"><div class="history-copy"><h2>Behind every discovery,<br><em>a question.</em></h2><p>科学史不只是姓名与年份的排列。它也记录问题如何被提出，思想如何改变，以及证据如何让人重新理解世界。</p><a class="text-link" href="#history">走进科学与历史 <span>People, instruments & ideas</span></a><p class="image-credit">Portrait: Ferdinand Schmutzer · 1921 · Public Domain</p></div></section><section class="section"><div class="section-heading"><h2>From the archive <span>档案索引</span></h2><a href="#archive">查看全部档案</a></div>${table(articles.slice(1,6))}</section><section class="section about-strip"><div><h2>Keep asking.<br>Keep a record.</h2></div><div><p>这是一个保存问题、推理与实践的个人学术空间。学习笔记与科学史资料并置，让当下的探索与知识的历史相互照亮。</p><a class="text-link" href="#about">关于这个空间 <span>About</span></a></div></section>`;}
+function home(){return `<section class="hero"><div><h1>The pursuit of<br><em>understanding.</em></h1><p class="hero-cn">在公式、思想与自然之间。</p><p class="intro">记录数学的推理、电子信息的实践与人工智能的探索。也回望那些改变我们理解世界方式的人与思想。</p><a class="text-link" href="#archive">浏览学术档案 <span>Explore the archive</span></a></div><figure class="hero-figure"><a class="image-wrap" href="#article/astrolabe"><span class="medal-static"><img src="assets/alfred-nobel-medal-user.png" alt="用户提供的阿尔弗雷德·诺贝尔肖像奖章图片" width="946" height="950"></span></a><figcaption><strong>阿尔弗雷德·诺贝尔（1833—1896）</strong>瑞典化学家与发明家。他以遗嘱设立诺贝尔奖，表彰为人类作出贡献的人。</figcaption></figure></section>${laureateIssue()}<section class="section"><div class="section-heading"><h2>Areas of inquiry <span>探索的领域</span></h2></div><div class="fields">${[['数学','Mathematics','结构、证明与近似。用推理把直觉变得清晰。'],['电子信息','Electronic Information','信号、系统与电路。从连续世界走向数字表达。'],['人工智能','Artificial Intelligence','模型、学习与优化。理解方法，也检验它的边界。'],['自然科学','Natural Sciences','从仪器到星系。让观察与证据引导问题。']].map((f,i)=>`<a class="field" href="#archive?field=${encodeURIComponent(f[0])}"><h3>${f[0]}</h3><span class="en">${f[1]}</span><p>${f[2]}</p></a>`).join('')}</div></section><section class="section"><div class="section-heading"><h2>Selected notes <span>精选札记</span></h2><a href="#notes">全部札记</a></div><div class="cards">${[articles[0],articles[2],articles[3]].map(card).join('')}</div></section><section class="history-feature"><img src="assets/einstein-1921.jpg" alt="Ferdinand Schmutzer 于 1921 年拍摄的爱因斯坦黑白肖像" loading="lazy" width="600" height="750"><div class="history-copy"><h2>Behind every discovery,<br><em>a question.</em></h2><p>科学史不只是姓名与年份的排列。它也记录问题如何被提出，思想如何改变，以及证据如何让人重新理解世界。</p><a class="text-link" href="#history">走进科学与历史 <span>People, instruments & ideas</span></a><p class="image-credit">Portrait: Ferdinand Schmutzer · 1921 · Public Domain</p></div></section><section class="section"><div class="section-heading"><h2>From the archive <span>档案索引</span></h2><a href="#archive">查看全部档案</a></div>${table(articles.slice(1,6))}</section><section class="section about-strip"><div><h2>Keep asking.<br>Keep a record.</h2></div><div><p>这是一个保存问题、推理与实践的个人学术空间。学习笔记与科学史资料并置，让当下的探索与知识的历史相互照亮。</p><a class="text-link" href="#about">关于这个空间 <span>About</span></a></div></section>`;}
 function about(){return `${heading('A place for curiosity.','关于这个学术空间','关注数学、电子信息、人工智能与自然科学；在学习中留下记录，在实践中检验理解。')}<div class="about-grid"><div><p class="eyebrow">PERSONAL INTRODUCTION</p><h2>关于我</h2><p>这里预留给你的个人介绍：正在学习的方向、关心的问题，以及希望与读者分享的经历。</p><p class="sample-note">个人姓名、经历与联系方式尚待补充。当前文章是用于展示阅读体验的内容样本。</p><h2>关心的方向</h2><p>数学中的结构与证明；电子信息中的信号与系统；人工智能中的学习与优化；自然科学中的观测、解释与科学史。</p><ul class="principles"><li><strong>Read carefully.</strong>阅读时保留原始来源与适用条件。</li><li><strong>Think clearly.</strong>区分直觉、假设、推理与证据。</li><li><strong>Build and reflect.</strong>在实践中检验理解，再回到问题本身。</li></ul></div><figure class="earth-figure"><img src="assets/nasa-blue-marble.jpg" alt="Apollo 17 在 1972 年拍摄的地球 Blue Marble 图像" width="800" height="800"><figcaption>THE BLUE MARBLE · NASA / APOLLO 17 CREW · 1972<br><a href="#sources">图像来源与许可</a></figcaption></figure></div>`;}
 let archiveState={field:'全部',q:'',sort:'number'};
 function archive(notesOnly=false,selected=''){const items=notesOnly?articles.filter(a=>['学习札记','资料笔记'].includes(a.kind)):articles;archiveState={field:selected||'全部',q:'',sort:'number'};return `${heading(notesOnly?'Learning notes.':'The archive.',notesOnly?'学习札记':'学术档案',notesOnly?'从基本概念开始，把推理、条件与自己的理解写下来。':'按领域浏览、用关键词检索，让保存的知识可以再次被找到。')}<div class="toolbar"><input class="searchbox" type="search" id="archive-search" aria-label="检索文章" placeholder="搜索标题、主题或关键词…"><select id="archive-sort" aria-label="排序方式"><option value="number">按档案编号</option><option value="title">按标题排序</option></select></div><div class="filter-list" aria-label="按领域筛选">${['全部',...new Set(items.map(a=>a.field))].map(f=>`<button class="filter ${f===archiveState.field?'active':''}" data-filter="${f}" aria-pressed="${f===archiveState.field}">${f}</button>`).join('')}</div><p class="sample-note">首版内容样本 · 可替换为你的文章和资料。</p><div id="archive-results" data-notes="${notesOnly}"></div>`;}
@@ -48,52 +48,9 @@ render=function(){renderWithAI();if(location.hash==='#sources'){main.querySelect
 
 const motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
 let revealObserver;
-let disposeMedalRotation=()=>{};
-function setupMedalRotation(){
-  disposeMedalRotation();
-  disposeMedalRotation=()=>{};
-  const medal=main.querySelector('[data-medal-rotation]');
-  if(!medal||motionPreference.matches)return;
-  const tilt=medal.querySelector('.medal-tilt'),link=medal.closest('a');
-  let frame=0,inView=false;
-  const play=()=>medal.classList.toggle('rotation-playing',inView&&!document.hidden);
-  const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;play();},{threshold:0.12}):null;
-  if(observer)observer.observe(medal);else{inView=true;play();}
-  const move=event=>{
-    if(event.pointerType==='touch')return;
-    const rect=medal.getBoundingClientRect();
-    const x=Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1));
-    const y=Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1));
-    medal.classList.add('rotation-interacting');
-    cancelAnimationFrame(frame);
-    frame=requestAnimationFrame(()=>{
-      tilt.style.setProperty('--medal-rx',`${-y*10}deg`);
-      tilt.style.setProperty('--medal-ry',`${x*18}deg`);
-      frame=0;
-    });
-  };
-  const reset=()=>{
-    cancelAnimationFrame(frame);frame=0;
-    medal.classList.remove('rotation-interacting');
-    ['--medal-rx','--medal-ry'].forEach(key=>tilt.style.removeProperty(key));
-  };
-  link.addEventListener('pointermove',move);
-  link.addEventListener('pointerleave',reset);
-  link.addEventListener('pointercancel',reset);
-  document.addEventListener('visibilitychange',play);
-  disposeMedalRotation=()=>{
-    observer?.disconnect();reset();medal.classList.remove('rotation-playing');
-    link.removeEventListener('pointermove',move);
-    link.removeEventListener('pointerleave',reset);
-    link.removeEventListener('pointercancel',reset);
-    document.removeEventListener('visibilitychange',play);
-  };
-}
-
 function setupPageMotion(){
   if(revealObserver){revealObserver.disconnect();revealObserver=null;}
   main.querySelectorAll('.motion-target').forEach(el=>{el.classList.remove('motion-target','is-visible');el.style.removeProperty('--reveal-delay');});
-  setupMedalRotation();
   if(motionPreference.matches||!('IntersectionObserver' in window))return;
   const targets=main.querySelectorAll('.hero > div,.hero-figure,.issue-heading,.issue-poster,.issue-portrait,.issue-profile blockquote,.section-heading,.field,.card,.history-copy,.about-strip > div,.page-intro,.about-grid > div,.project-card > div,.timeline-item,.article h1,.article-cover');
   revealObserver=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});},{threshold:0.06,rootMargin:'0px 0px -16px 0px'});
